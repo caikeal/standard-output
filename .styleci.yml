@@ -1,0 +1,11 @@
+preset: symfony
+
+linting: true
+
+enabled:
+  - strict
+  - strict_param
+  - ordered_use
+
+disabled:
+  - align_double_arrow
