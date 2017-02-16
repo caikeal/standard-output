@@ -1,7 +1,12 @@
 # 关于`Laravel`项目规范输出和错误提示（测试版本）
+
 # 安装
+`composer require keal/laravel-output`
 
 # 使用
+## 注册ServiceProvider
+在`app.php`中加入`Caikeal\Providers\OutputServiceProvider::class`
+
 ## 需要在`Exceptions/Handler.php`中引入`Caikeal\Exceptions\HandlerTrait`该方法，
 然后在改写下`render`方法，如下：
 ```
@@ -23,7 +28,6 @@
 ```
 
 ## 在返回时可以用该方法代替response返回：`$this->reponse()`的方法
-
 所有方法如下：
 + 正确：
     - model层，且带有transformer验证的单列数据：`$this->response()->item();`
