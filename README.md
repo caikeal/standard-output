@@ -5,7 +5,7 @@
 
 # 使用
 ## 注册ServiceProvider
-在`app.php`中加入`Caikeal\Providers\OutputServiceProvider::class`
+在`app.php`中加入`Caikeal\Provider\OutputServiceProvider::class`
 
 ## 引入错误处理
 需要在`Exceptions/Handler.php`中引入`Caikeal\Exceptions\HandlerTrait`该方法，
