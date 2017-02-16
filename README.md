@@ -7,7 +7,8 @@
 ## 注册ServiceProvider
 在`app.php`中加入`Caikeal\Providers\OutputServiceProvider::class`
 
-## 需要在`Exceptions/Handler.php`中引入`Caikeal\Exceptions\HandlerTrait`该方法，
+## 引入错误处理
+需要在`Exceptions/Handler.php`中引入`Caikeal\Exceptions\HandlerTrait`该方法，
 然后在改写下`render`方法，如下：
 ```
     public function render($request, Exception $exception)
@@ -19,7 +20,8 @@
         return parent::render($request, $exception);
     }
 ```
-## 在所有`Controller`的基类中引入该方法，如下：
+## 引入返回值基类
+在所有`Controller`的基类中引入该方法，如下：
 ```
     protected function response()
     {
@@ -27,15 +29,16 @@
     }
 ```
 
-## 在返回时可以用该方法代替response返回：`$this->reponse()`的方法
+## 返回方法
+在返回时可以用该方法代替response返回：`$this->reponse()`的方法
 所有方法如下：
-+ 正确：
++ 正确值返回：
     - model层，且带有transformer验证的单列数据：`$this->response()->item();`
     - model层，且带有transformer验证的多列数据：`$this->response()->collection();`
     - model层，且带有transformer验证的分页数据：`$this->response()->paginator();`
     - 任意：`$this->response()->array();`
 
-+ 错误：
++ 错误值返回：
     - 404错误：`$this->response()->errorNotFound()`
     - 400错误：`$this->response()->errorBadRequest()`
     - 403错误：`$this->response()->errorForbidden()`
