@@ -2,6 +2,7 @@
 
 namespace Caikeal\Providers;
 
+use Caikeal\Response\Format\Json;
 use Illuminate\Support\ServiceProvider;
 use Caikeal\Response\Response;
 use Caikeal\Transformer\Factory as TransformerFactory;
@@ -22,6 +23,7 @@ class OutputServiceProvider extends ServiceProvider
 
     protected function setResponseStaticInstances()
     {
+        Response::setFormatters(['json'=>$this->app->make(Json::class)]);
         Response::setTransformer($this->app['output.transformer']);
     }
 

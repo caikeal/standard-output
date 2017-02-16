@@ -15,13 +15,6 @@ use Illuminate\Container\Container;
 class Binding
 {
     /**
-     * String of service code.
-     *
-     * @var string
-     */
-    protected $code = '000000';
-
-    /**
      * Illuminate container instance.
      *
      * @var \Illuminate\Container\Container
@@ -151,29 +144,5 @@ class Binding
     public function getMeta()
     {
         return $this->meta;
-    }
-
-    /**
-     * Get the code.
-     *
-     * @return mixed
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
-
-    /**
-     * Set the code.
-     *
-     * @param number $code
-     *
-     * @return $this
-     */
-    public function setCode($code)
-    {
-        $this->code = $code;
-
-        return $this;
     }
 }

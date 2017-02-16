@@ -305,25 +305,30 @@ class Response extends IlluminateResponse
     }
 
     /**
-     * Get the code.
+     * Add morph.
      *
-     * @return mixed
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function getCode()
+    public function prepare(\Symfony\Component\HttpFoundation\Request $request)
     {
-        return $this->code;
+        $response = self::morph();
+        return parent::prepare($request);
     }
 
     /**
-     * Set the code.
+     * Add Headers.
      *
-     * @param number $code
-     *
+     * @param array $headers
      * @return $this
      */
-    public function setCode($code)
+    public function addHeaders(array $headers=[])
     {
-        $this->code = $code;
+        if (count($headers)) {
+            foreach ($headers as $key => $value) {
+                $this->headers->set(strtoupper($key), $value);
+            }
+        }
 
         return $this;
     }
