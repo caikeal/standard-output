@@ -22,11 +22,11 @@ class Json extends Format
      */
     public function formatEloquentModel($model)
     {
-        $key = Str::singular($model->getTable());
-        if (! $model::$snakeAttributes) {
-            $key = Str::camel($key);
-        }
-        return $this->encode([$key => $model->toArray()]);
+//        $key = Str::singular($model->getTable());
+//        if (! $model::$snakeAttributes) {
+//            $key = Str::camel($key);
+//        }
+        return $this->encode(["data" => $model->toArray()]);
     }
 
     /**
@@ -41,12 +41,12 @@ class Json extends Format
         if ($collection->isEmpty()) {
             return $this->encode([]);
         }
-        $model = $collection->first();
-        $key = Str::plural($model->getTable());
-        if (! $model::$snakeAttributes) {
-            $key = Str::camel($key);
-        }
-        return $this->encode([$key => $collection->toArray()]);
+//        $model = $collection->first();
+//        $key = Str::plural($model->getTable());
+//        if (! $model::$snakeAttributes) {
+//            $key = Str::camel($key);
+//        }
+        return $this->encode(["data" => $collection->toArray()]);
     }
 
     /**
