@@ -12,7 +12,6 @@ use Closure;
 use ErrorException;
 use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
-use Caikeal\Response\Response;
 use Caikeal\Transformer\Factory as TransformerFactory;
 use Illuminate\Contracts\Pagination\Paginator;
 use Symfony\Component\HttpKernel\Exception\HttpException;
