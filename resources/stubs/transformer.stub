@@ -1,0 +1,21 @@
+<?php
+
+namespace transformer_namespace;
+
+use League\Fractal\TransformerAbstract;
+
+/**
+ * Class transformer_class
+ * @package transformer_namespace
+ */
+class transformer_class extends TransformerAbstract
+{
+    /**
+     * @param
+     * @return array
+     */
+    public function transform()
+    {
+        return [];
+    }
+}

@@ -66,5 +66,8 @@
     }
 ```
 
+## `Artsian`创建`Transformer`类
+`php artisan make:transformer User`
+
 # 感谢
 主要借鉴和引用了[Dingo/api](https://github.com/dingo/api.git)和[league/fractal](https://github.com/thephpleague/fractal.git)
