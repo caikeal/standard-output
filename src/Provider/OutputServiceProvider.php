@@ -1,6 +1,6 @@
 <?php
 
-namespace Caikeal\Providers;
+namespace Caikeal\Provider;
 
 use Caikeal\Response\Format\Json;
 use Illuminate\Support\ServiceProvider;
@@ -37,16 +37,6 @@ class OutputServiceProvider extends ServiceProvider
         $this->registerClassAliases();
         $this->registerTransformer();
         $this->registerResponseFactory();
-        $this->registerCommand();
-    }
-
-    protected function registerCommand()
-    {
-        if (class_exists('Illuminate\Foundation\Application', false)) {
-            $this->commands([
-                \Caikeal\Command\TransformerCommand::class
-            ]);
-        }
     }
 
     /**
