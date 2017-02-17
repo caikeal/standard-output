@@ -37,6 +37,21 @@ class OutputServiceProvider extends ServiceProvider
         $this->registerClassAliases();
         $this->registerTransformer();
         $this->registerResponseFactory();
+        $this->registerCommand();
+    }
+
+    /**
+     * Register the transformer command.
+     *
+     * @return void
+     */
+    protected function registerCommand()
+    {
+        if (class_exists('Illuminate\Foundation\Application', false)) {
+            $this->commands([
+                \Caikeal\Command\TransformerCommand::class
+            ]);
+        }
     }
 
     /**
