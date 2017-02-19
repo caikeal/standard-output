@@ -3,6 +3,7 @@
 namespace transformer_namespace;
 
 use League\Fractal\TransformerAbstract;
+model_namespace_use
 
 /**
  * Class transformer_class
@@ -11,10 +12,10 @@ use League\Fractal\TransformerAbstract;
 class transformer_class extends TransformerAbstract
 {
     /**
-     * @param
+     * @param [model_class]$data
      * @return array
      */
-    public function transform()
+    public function transform([model_class]$data)
     {
         return [];
     }

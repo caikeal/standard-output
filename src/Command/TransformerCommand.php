@@ -36,6 +36,11 @@ class TransformerCommand extends Command
     /**
      * @var
      */
+    protected $modelOption;
+
+    /**
+     * @var
+     */
     protected $composer;
 
     /**
@@ -43,7 +48,7 @@ class TransformerCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'make:transformer {name}';
+    protected $signature = 'make:transformer {name : Transformer name} {--m|model= : Binding Model name}';
 
     /**
      * The console command description.
@@ -88,9 +93,10 @@ class TransformerCommand extends Command
     {
         // get argument.
         $transformer = $this->argument('name');
+        $modelOption = $this->option('model');
 
         // Create the repository.
-        if($this->create($transformer))
+        if($this->create($transformer, $modelOption))
         {
             // Information message.
             $this->info("Transformer file created successfully.");
@@ -101,12 +107,13 @@ class TransformerCommand extends Command
      * Create the transformer.
      *
      * @param $transformer
+     * @param $modelOption
      * @return int
      */
-    public function create($transformer)
+    public function create($transformer, $modelOption)
     {
         // Set the transformer.
-        $this->setTransformer($transformer);
+        $this->setTransformer($transformer, $modelOption);
 
         // Create the directory.
         $this->createDirectory();
@@ -119,10 +126,12 @@ class TransformerCommand extends Command
      * Set transformer.
      *
      * @param mixed $transformer
+     * @param mixed $modelOption
      */
-    public function setTransformer($transformer)
+    public function setTransformer($transformer, $modelOption)
     {
         $this->transformer = $transformer;
+        $this->modelOption = $modelOption;
     }
 
     /**
@@ -133,6 +142,16 @@ class TransformerCommand extends Command
     public function getTransformer()
     {
         return $this->transformer;
+    }
+
+    /**
+     * Get model.
+     *
+     * @return mixed
+     */
+    public function getModelOption()
+    {
+        return $this->modelOption ?:'';
     }
 
     /**
@@ -210,6 +229,51 @@ class TransformerCommand extends Command
     }
 
     /**
+     * Get the model name.
+     *
+     * @return mixed|string
+     */
+    public function getModelName()
+    {
+        // Get the model.
+        $model_name = $this->getModelOption();
+
+        // Check if the model is set.
+        if (!$model_name) return '';
+
+        // Check if the model has dir path.
+        $modelPath = explode('/', $model_name);
+
+        // Return model name.
+        return end($modelPath);
+    }
+
+    /**
+     * Get the model namespace.
+     *
+     * @return mixed|string
+     */
+    public function getModelNamespace()
+    {
+        // Get the model.
+        $model_name = $this->getModelOption();
+
+        // Check if the model is set.
+        if (!$model_name) return '';
+
+        // Check if the model has dir path.
+        $modelPath = explode('/', $model_name);
+
+        // Give namespace.
+        $modelPath = implode("\\", $modelPath);
+
+        $modelPath = 'App\\'.$modelPath;
+
+        // Return model namespace.
+        return $modelPath;
+    }
+
+    /**
      * Populate the stub.
      *
      * @return mixed
@@ -241,10 +305,17 @@ class TransformerCommand extends Command
         $transformer_namespace = $this->namespace;
         // Transformer class.
         $transformer_class     = $this->getTransformerName();
+        // Model namespace
+        $model_namespace = $this->getModelNamespace();
+        // Model class.
+        $model_class     = $this->getModelName();
         // Populate data.
         $populate_data = [
             'transformer_namespace' => $transformer_namespace,
-            'transformer_class'     => $transformer_class
+            'transformer_class'     => $transformer_class,
+            'model_namespace_use'   => $model_namespace ? "use {$model_namespace};" : '',
+            'model_namespace'       => $model_namespace,
+            '[model_class]'         => $model_class ? "{$model_class} " : ''
         ];
         // Return populate data.
         return $populate_data;

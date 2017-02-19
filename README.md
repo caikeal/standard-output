@@ -88,7 +88,13 @@
 ```
 
 ## `Artsian`创建`Transformer`类
-`php artisan make:transformer User`
+创建Transformer：`php artisan make:transformer User`
+
+附带Model名：`php artisan make:transformer User -m User`
+
+或者`php artisan make:transformer User --model=User`
+
+或者`php artisan make:transformer User --model=Model/User` 带位置，命令会自动转化成空间名，并在开头添加`App`
 
 # 感谢
 主要借鉴和引用了[Dingo/api](https://github.com/dingo/api.git)和[league/fractal](https://github.com/thephpleague/fractal.git)
