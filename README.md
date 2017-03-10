@@ -1,7 +1,7 @@
 # 关于`Laravel`项目规范`Api`输出和错误提示（测试版本）
 
 # 安装
-试用Laravel >= 5.1.*
+建议使用Laravel >= 5.1.* , PHP >= 5.6
 
 `composer require keal/laravel-output`
 
