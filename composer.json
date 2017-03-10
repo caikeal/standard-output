@@ -1,6 +1,6 @@
 {
   "name": "keal/laravel-output",
-  "description": "laravel standard output",
+  "description": "Laravel standard output for restful api",
   "type": "php",
   "license": "MIT",
   "authors": [
