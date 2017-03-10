@@ -6,16 +6,16 @@
  * Time: 下午2:47
  */
 
-namespace Caikeal\Response;
+namespace Caikeal\Output\Response;
 
 use ArrayObject;
 use UnexpectedValueException;
 use Illuminate\Http\JsonResponse;
-use Caikeal\Transformer\Binding;
+use Caikeal\Output\Transformer\Binding;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Http\Response as IlluminateResponse;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
-use Caikeal\Transformer\Factory as TransformerFactory;
+use Caikeal\Output\Transformer\Factory as TransformerFactory;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Symfony\Component\HttpKernel\Exception\NotAcceptableHttpException;
 
@@ -31,7 +31,7 @@ class Response extends IlluminateResponse
     /**
      * Transformer binding instance.
      *
-     * @var \Caikeal\Transformer\Binding
+     * @var \Caikeal\Output\Transformer\Binding
      */
     protected $binding;
 
@@ -45,7 +45,7 @@ class Response extends IlluminateResponse
     /**
      * Transformer factory instance.
      *
-     * @var \Caikeal\Transformer\Factory
+     * @var \Caikeal\Output\Transformer\Factory
      */
     protected static $transformer;
 
@@ -55,7 +55,7 @@ class Response extends IlluminateResponse
      * @param mixed                          $content
      * @param int                            $status
      * @param array                          $headers
-     * @param \Caikeal\Transformer\Binding $binding
+     * @param \Caikeal\Output\Transformer\Binding $binding
      *
      * @return void
      */
@@ -70,7 +70,7 @@ class Response extends IlluminateResponse
      *
      * @param \Illuminate\Http\Response $old
      *
-     * @return \Caikeal\Response\Response
+     * @return \Caikeal\Output\Response\Response
      */
     public static function makeFromExisting(IlluminateResponse $old)
     {
@@ -84,7 +84,7 @@ class Response extends IlluminateResponse
      *
      * @param \Illuminate\Http\JsonResponse $json
      *
-     * @return \Caikeal\Response\Response
+     * @return \Caikeal\Output\Response\Response
      */
     public static function makeFromJson(JsonResponse $json)
     {
@@ -98,7 +98,7 @@ class Response extends IlluminateResponse
      *
      * @param string $format
      *
-     * @return \Caikeal\Response\Response
+     * @return \Caikeal\Output\Response\Response
      */
     public function morph($format = 'json')
     {
@@ -147,7 +147,7 @@ class Response extends IlluminateResponse
      *
      * @throws \RuntimeException
      *
-     * @return \Caikeal\Response\Format\Format
+     * @return \Caikeal\Output\Response\Format\Format
      */
     public static function getFormatter($format)
     {
@@ -185,7 +185,7 @@ class Response extends IlluminateResponse
      * Add a response formatter.
      *
      * @param string                                 $key
-     * @param \Caikeal\Response\Format\Format $formatter
+     * @param \Caikeal\Output\Response\Format\Format $formatter
      *
      * @return void
      */
@@ -197,7 +197,7 @@ class Response extends IlluminateResponse
     /**
      * Set the transformer factory instance.
      *
-     * @param \Caikeal\Transformer\Factory $transformer
+     * @param \Caikeal\Output\Transformer\Factory $transformer
      *
      * @return void
      */
@@ -209,7 +209,7 @@ class Response extends IlluminateResponse
     /**
      * Get the transformer instance.
      *
-     * @return \Caikeal\Transformer\Factory
+     * @return \Caikeal\Output\Transformer\Factory
      */
     public static function getTransformer()
     {
@@ -222,7 +222,7 @@ class Response extends IlluminateResponse
      * @param string $key
      * @param mixed  $value
      *
-     * @return \Caikeal\Response\Response
+     * @return \Caikeal\Output\Response\Response
      */
     public function addMeta($key, $value)
     {
@@ -236,7 +236,7 @@ class Response extends IlluminateResponse
      * @param string $key
      * @param mixed  $value
      *
-     * @return \Caikeal\Response\Response
+     * @return \Caikeal\Output\Response\Response
      */
     public function meta($key, $value)
     {
@@ -248,7 +248,7 @@ class Response extends IlluminateResponse
      *
      * @param array $meta
      *
-     * @return \Caikeal\Response\Response
+     * @return \Caikeal\Output\Response\Response
      */
     public function setMeta(array $meta)
     {
@@ -271,7 +271,7 @@ class Response extends IlluminateResponse
      *
      * @param \Symfony\Component\HttpFoundation\Cookie|mixed $cookie
      *
-     * @return \Caikeal\Response\Response
+     * @return \Caikeal\Output\Response\Response
      */
     public function cookie($cookie)
     {
@@ -285,7 +285,7 @@ class Response extends IlluminateResponse
      * @param string $value
      * @param bool   $replace
      *
-     * @return \Caikeal\Response\Response
+     * @return \Caikeal\Output\Response\Response
      */
     public function withHeader($key, $value, $replace = true)
     {
@@ -297,7 +297,7 @@ class Response extends IlluminateResponse
      *
      * @param int $statusCode
      *
-     * @return \Caikeal\Response\Response
+     * @return \Caikeal\Output\Response\Response
      */
     public function statusCode($statusCode)
     {

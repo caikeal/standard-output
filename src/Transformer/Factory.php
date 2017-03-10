@@ -6,13 +6,13 @@
  * Time: 下午1:42
  */
 
-namespace Caikeal\Transformer;
+namespace Caikeal\Output\Transformer;
 
 use Closure;
 use RuntimeException;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\Pagination\Paginator;
-use Caikeal\Transformer\Contract\Adapter;
+use Caikeal\Output\Transformer\Contract\Adapter;
 use Illuminate\Container\Container;
 
 class Factory
@@ -34,7 +34,7 @@ class Factory
     /**
      * Transformation layer adapter being used to transform responses.
      *
-     * @var \Caikeal\Transformer\Contract\Adapter
+     * @var \Caikeal\Output\Transformer\Contract\Adapter
      */
     protected $adapter;
 
@@ -42,7 +42,7 @@ class Factory
      * Create a new transformer factory instance.
      *
      * @param \Illuminate\Container\Container   $container
-     * @param \Caikeal\Transformer\Contract\Adapter $adapter
+     * @param \Caikeal\Output\Transformer\Contract\Adapter $adapter
      *
      * @return void
      */
@@ -60,7 +60,7 @@ class Factory
      * @param array|\Closure         $third
      * @param \Closure               $fourth
      *
-     * @return \Caikeal\Transformer\Binding
+     * @return \Caikeal\Output\Transformer\Binding
      */
     public function register($class, $resolver, $third = null, $fourth = null)
     {
@@ -120,7 +120,7 @@ class Factory
      *
      * @throws \RuntimeException
      *
-     * @return \Caikeal\Transformer\Binding
+     * @return \Caikeal\Output\Transformer\Binding
      */
     protected function getBinding($class)
     {
@@ -141,7 +141,7 @@ class Factory
      * @param array                  $parameters
      * @param \Closure               $callback
      *
-     * @return \Caikeal\Transformer\Binding
+     * @return \Caikeal\Output\Transformer\Binding
      */
     protected function createBinding($resolver, array $parameters = [], Closure $callback = null)
     {
@@ -201,7 +201,7 @@ class Factory
     /**
      * Set the transformation layer at runtime.
      *
-     * @param \Closure|\Caikeal\Transformer\Contract\Adapter $adapter
+     * @param \Closure|\Caikeal\Output\Transformer\Contract\Adapter $adapter
      *
      * @return void
      */
@@ -216,7 +216,7 @@ class Factory
     /**
      * Get the transformation layer adapter.
      *
-     * @return \Caikeal\Transformer\Contract\Adapter
+     * @return \Caikeal\Output\Transformer\Contract\Adapter
      */
     public function getAdapter()
     {

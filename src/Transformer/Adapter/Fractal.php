@@ -6,10 +6,10 @@
  * Time: 上午11:39
  */
 
-namespace Caikeal\Transformer\Adapter;
+namespace Caikeal\Output\Transformer\Adapter;
 
-use Caikeal\Transformer\Binding;
-use Caikeal\Transformer\Contract\Adapter;
+use Caikeal\Output\Transformer\Binding;
+use Caikeal\Output\Transformer\Contract\Adapter;
 use Illuminate\Http\Request;
 use League\Fractal\Manager as FractalManager;
 use League\Fractal\Resource\Item as FractalItem;
@@ -72,7 +72,7 @@ class Fractal implements Adapter
      *
      * @param mixed $response
      * @param object $transformer
-     * @param \Caikeal\Transformer\Binding $binding $binding
+     * @param \Caikeal\Output\Transformer\Binding $binding $binding
      * @param \Illuminate\Http\Request $request
      *
      * @return array
@@ -193,7 +193,7 @@ class Fractal implements Adapter
     /**
      * Disable eager loading.
      *
-     * @return \Caikeal\Transformer\Adapter\Fractal
+     * @return \Caikeal\Output\Transformer\Adapter\Fractal
      */
     public function disableEagerLoading()
     {
@@ -204,7 +204,7 @@ class Fractal implements Adapter
     /**
      * Enable eager loading.
      *
-     * @return \Caikeal\Transformer\Adapter\Fractal
+     * @return \Caikeal\Output\Transformer\Adapter\Fractal
      */
     public function enableEagerLoading()
     {

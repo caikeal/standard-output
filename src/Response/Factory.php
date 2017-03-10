@@ -6,13 +6,13 @@
  * Time: 下午1:40
  */
 
-namespace Caikeal\Response;
+namespace Caikeal\Output\Response;
 
 use Closure;
 use ErrorException;
 use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
-use Caikeal\Transformer\Factory as TransformerFactory;
+use Caikeal\Output\Transformer\Factory as TransformerFactory;
 use Illuminate\Contracts\Pagination\Paginator;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
@@ -21,14 +21,14 @@ class Factory
     /**
      * Transformer factory instance.
      *
-     * @var \Caikeal\Transformer\Factory
+     * @var \Caikeal\Output\Transformer\Factory
      */
     protected $transformer;
 
     /**
      * Create a new response factory instance.
      *
-     * @param \Caikeal\Transformer\Factory $transformer
+     * @param \Caikeal\Output\Transformer\Factory $transformer
      *
      * @return void
      */
@@ -42,7 +42,7 @@ class Factory
      *
      * @param null|string $location
      *
-     * @return \Caikeal\Response\Response
+     * @return \Caikeal\Output\Response\Response
      */
     public function created($location = null, $content = null)
     {
@@ -60,7 +60,7 @@ class Factory
      * @param null|string $location
      * @param mixed       $content
      *
-     * @return \Caikeal\Response\Response
+     * @return \Caikeal\Output\Response\Response
      */
     public function accepted($location = null, $content = null)
     {
@@ -75,7 +75,7 @@ class Factory
     /**
      * Respond with a no content response.
      *
-     * @return \Caikeal\Response\Response
+     * @return \Caikeal\Output\Response\Response
      */
     public function noContent()
     {
@@ -91,7 +91,7 @@ class Factory
      * @param array|\Closure                 $parameters
      * @param \Closure|null                  $after
      *
-     * @return \Caikeal\Response\Response
+     * @return \Caikeal\Output\Response\Response
      */
     public function collection(Collection $collection, $transformer, $parameters = [], Closure $after = null)
     {
@@ -116,7 +116,7 @@ class Factory
      * @param array    $parameters
      * @param \Closure $after
      *
-     * @return \Caikeal\Response\Response
+     * @return \Caikeal\Output\Response\Response
      */
     public function item($item, $transformer, $parameters = [], Closure $after = null)
     {
@@ -137,7 +137,7 @@ class Factory
      * @param array                                      $parameters
      * @param \Closure                                   $after
      *
-     * @return \Caikeal\Response\Response
+     * @return \Caikeal\Output\Response\Response
      */
     public function paginator(Paginator $paginator, $transformer, array $parameters = [], Closure $after = null)
     {

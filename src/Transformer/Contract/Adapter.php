@@ -6,9 +6,9 @@
  * Time: 上午11:41
  */
 
-namespace Caikeal\Transformer\Contract;
+namespace Caikeal\Output\Transformer\Contract;
 
-use Caikeal\Transformer\Binding;
+use Caikeal\Output\Transformer\Binding;
 use Illuminate\Http\Request;
 
 interface Adapter
@@ -18,7 +18,7 @@ interface Adapter
      *
      * @param mixed                               $response
      * @param object                              $transformer
-     * @param \Caikeal\Transformer\Binding $binding   $binding
+     * @param \Caikeal\Output\Transformer\Binding $binding   $binding
      * @param \Illuminate\Http\Request            $request
      *
      * @return array

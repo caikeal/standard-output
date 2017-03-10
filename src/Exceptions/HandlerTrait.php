@@ -6,7 +6,7 @@
  * Time: 上午11:17
  */
 
-namespace Caikeal\Exceptions;
+namespace Caikeal\Output\Exceptions;
 
 use Exception;
 use Illuminate\Http\Response;

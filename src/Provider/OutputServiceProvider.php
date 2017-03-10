@@ -1,13 +1,13 @@
 <?php
 
-namespace Caikeal\Provider;
+namespace Caikeal\Output\Provider;
 
-use Caikeal\Response\Format\Json;
+use Caikeal\Output\Response\Format\Json;
 use Illuminate\Support\ServiceProvider;
-use Caikeal\Response\Response;
-use Caikeal\Transformer\Factory as TransformerFactory;
-use Caikeal\Transformer\Adapter\Fractal;
-use Caikeal\Response\Factory as ResponseFactory;
+use Caikeal\Output\Response\Response;
+use Caikeal\Output\Transformer\Factory as TransformerFactory;
+use Caikeal\Output\Transformer\Adapter\Fractal;
+use Caikeal\Output\Response\Factory as ResponseFactory;
 
 class OutputServiceProvider extends ServiceProvider
 {
@@ -49,7 +49,7 @@ class OutputServiceProvider extends ServiceProvider
     {
         if (class_exists('Illuminate\Foundation\Application', false)) {
             $this->commands([
-                \Caikeal\Command\TransformerCommand::class
+                \Caikeal\Output\Command\TransformerCommand::class
             ]);
         }
     }
@@ -86,8 +86,8 @@ class OutputServiceProvider extends ServiceProvider
     protected function registerClassAliases()
     {
         $aliases = [
-            'output.response' => 'Caikeal\Response\Factory',
-            'output.transformer' => 'Caikeal\Transformer\Factory',
+            'output.response' => 'Caikeal\Output\Response\Factory',
+            'output.transformer' => 'Caikeal\Output\Transformer\Factory',
         ];
         foreach ($aliases as $key => $aliases) {
             foreach ((array) $aliases as $alias) {

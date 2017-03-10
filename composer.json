@@ -20,12 +20,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Caikeal\\": "src/"
+      "Caikeal\\Output\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Caikeal\\Test\\": "tests/"
+      "Caikeal\\Output\\Test\\": "tests/"
     }
   },
   "minimum-stability": "dev"

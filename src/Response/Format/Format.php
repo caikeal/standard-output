@@ -6,7 +6,7 @@
  * Time: 下午2:54
  */
 
-namespace Caikeal\Response\Format;
+namespace Caikeal\Output\Response\Format;
 
 
 abstract class Format
@@ -30,7 +30,7 @@ abstract class Format
      *
      * @param \Illuminate\Http\Request $request
      *
-     * @return \Caikeal\Response\Format\Format
+     * @return \Caikeal\Output\Response\Format\Format
      */
     public function setRequest($request)
     {
@@ -43,7 +43,7 @@ abstract class Format
      *
      * @param \Illuminate\Http\Response $response
      *
-     * @return \Caikeal\Response\Format\Format
+     * @return \Caikeal\Output\Response\Format\Format
      */
     public function setResponse($response)
     {

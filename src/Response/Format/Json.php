@@ -6,7 +6,7 @@
  * Time: 下午2:55
  */
 
-namespace Caikeal\Response\Format;
+namespace Caikeal\Output\Response\Format;
 
 use Illuminate\Support\Str;
 use Illuminate\Contracts\Support\Arrayable;

@@ -1,14 +1,15 @@
 # 关于`Laravel`项目规范输出和错误提示（测试版本）
 
 # 安装
+试用Laravel >= 5.1.*
 `composer require keal/laravel-output`
 
 # 使用
 ## 注册ServiceProvider
-在`app.php`中加入`Caikeal\Provider\OutputServiceProvider::class`
+在`app.php`中加入`Caikeal\Output\Provider\OutputServiceProvider::class`
 
 ## 引入错误处理
-需要在`Exceptions/Handler.php`中引入`Caikeal\Exceptions\HandlerTrait`该方法，
+需要在`Exceptions/Handler.php`中引入`Caikeal\Output\Exceptions\HandlerTrait`该方法，
 然后在改写下`render`方法，如下：
 ```
     public function render($request, Exception $exception)
@@ -71,7 +72,7 @@
 ## `Transformer`的数据格式转换
 在所有`Transformer`类中必须继承`League\Fractal\TransformerAbstract`，使用如下：
 ```
-    namespace App\Transformer;
+    namespace App\Transformers;
     
     use App\User;
     use League\Fractal\TransformerAbstract;

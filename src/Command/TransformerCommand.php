@@ -6,7 +6,7 @@
  * Time: 下午7:27
  */
 
-namespace Caikeal\Command;
+namespace Caikeal\Output\Command;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Console\Command;

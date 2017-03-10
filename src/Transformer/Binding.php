@@ -6,7 +6,7 @@
  * Time: 上午11:43
  */
 
-namespace Caikeal\Transformer;
+namespace Caikeal\Output\Transformer;
 
 use Closure;
 use RuntimeException;
