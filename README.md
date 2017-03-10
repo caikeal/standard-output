@@ -2,6 +2,7 @@
 
 # 安装
 试用Laravel >= 5.1.*
+
 `composer require keal/laravel-output`
 
 # 使用
